@@ -27,11 +27,11 @@ from contextlib import asynccontextmanager
 app = FastAPI()
 
 # ข้อมูล token และ channel secret สำหรับ LINE
-ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN", "")
-CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "")
+ACCESS_TOKEN = os.getenv("ud0363aAZ8XrxzQ/Mgm+L0Zd5vVocJEpfwzCFcOEL6xKVrq8wT92t2N6+UG+fnyDi7c/HAtbNnk0h7Y/kAc3oPDmgU8vRH5omsImxxCYXsLB9nHuOqImifDHpWyJiXdFqvPXxJHdEpBIBL+ySRioywdB04t89/1O/w1cDnyilFU=", "")
+CHANNEL_SECRET = os.getenv("18861960dc2febf9eb3bd3ad03d6fb5c", "")
 
 # ข้อมูล Gemini api key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEY = os.getenv("AIzaSyB4ifa1wad825MlwFWuogtll2_sEbxSjlk", "")
 
 # การเชื่อมต่อ และตั้งค่าข้อมูลเพื่อเรียกใช้งาน LINE Messaging API
 configuration = Configuration(access_token=ACCESS_TOKEN)
@@ -240,10 +240,11 @@ gemini = GeminiRAGSystem(
 async def lifespan(app: FastAPI):
     # ข้อมูลตัวอย่างที่ใช้สำหรับ Gemini
     sample_documents = [
-        "จิรภัทร ทำดี คือ ชายหนุ่มที่มีความสามารถในการเขียนโปรแกรมที่มาจากบริษัท ClickNext ที่เป็นบริษัทด้านการพัฒนาโปรแกรมที่มีชื่อเสียง",
-        "จิรภัทร ทำดี มีชื่อเล่นว่า ปาล์ม เกิดวันที่ 25 มกราคม 2555 ที่จังหวัดสระบุรี ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาวิศวกรรมคอมพิวเตอร์",
-        "งาน BUU-Bootcamp-2024 จัดที่มหาวิทยาลัยบูรพา ในวันที่ 25 มกราคม ปีค.ศ.2024 โดยมีการจัดกิจกรรมต่าง ๆ ที่เกี่ยวข้องกับการพัฒนาซอฟต์แวร์ เวลา 9:00 น. - 16:00 น.",
-        "มหาวิทยาลัยบูรพา สาขาวิชาAI ปีการศึกษา 2565 มีนักศึกษาจำนวน 100 คน มีอาจารย์ที่ปรึกษา 10 คน"
+        "มาริสา เผือกโสภา คือ นักศึกษามหาวิทยาลัยบูรพาปี3 ชอบกินแซ่บมากๆ เราจะมีกล้ามไปด้วยกัน",
+        "มาริสา เผือกโสภา มีชื่อเล่นว่า ส้ม เกิดวันที่ 30 ธันวาคม 2546 ที่จังหวัดสระบุรี ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาปัญญาประดิษฐ์ประยุกต์และเทคโนโลยีอัจฉริยะ",
+        "งาน BUU-Bootcamp-2024 จัดที่มหาวิทยาลัยบูรพา ในวันที่ 12 ธันวาคม ปีค.ศ.2024 โดยมีการจัดกิจกรรมต่าง ๆ ที่เกี่ยวข้องกับการพัฒนาซอฟต์แวร์ เวลา 9:00 น. - 16:00 น.",
+        "มหาวิทยาลัยบูรพา สาขาวิชาAI ปีการศึกษา 2565 มีนักศึกษาจำนวน 100 คน มีอาจารย์ที่ปรึกษา 10 คน",
+        "สมาชิก Clicknext แผนก AI พี่ดาว-BA พี่ออย-BA พี่ปาล์ม-developer พี่ชวน-PM พี่เจ๋ง- prompt en"
     ]
     
     # เพิ่มข้อมูลตัวอย่างลงใน Gemini
